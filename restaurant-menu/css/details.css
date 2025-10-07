@@ -1,0 +1,72 @@
+.item-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+}
+
+.modal-content {
+    position: relative;
+    background: #fff;
+    border-radius: 12px;
+    max-width: 600px;
+    width: 90%;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.modal-image {
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover;
+    border-radius: 8px 8px 0 0;
+}
+
+/* Крестик поверх картинки */
+.close-modal {
+    position: absolute; /* теперь поверх картинки */
+    top: 15px;
+    right: 15px;
+    font-size: 40px;
+    font-weight: bold;
+    color: #fff;
+    background: rgba(0,0,0,0.5);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 10001;
+}
+
+.dish-info {
+    text-align: center;
+    padding: 15px;
+}
+
+.dish-info h1 {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.dish-info p {
+    font-size: 16px;
+    margin-bottom: 15px;
+    color: #555;
+}
+
+.details span {
+    font-weight: bold;
+    margin: 0 10px;
+    font-size: 16px;
+}

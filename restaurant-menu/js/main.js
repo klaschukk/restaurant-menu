@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const menuItemsContainer = document.querySelector('.menu-items');
 
     // Fetch local JSON data
-    fetch('../menu-data.json')
+    fetch('../json/menu-data.json')
         .then(response => response.json())
         .then(data => {
             data.menuItems.forEach(item => {

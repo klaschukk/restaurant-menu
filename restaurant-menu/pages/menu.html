@@ -15,13 +15,13 @@
   <body>
     <div class="sidebar" id="sidebar">
       <div class="sidebar-header">
-        <span class="close-btn">&times;</span>
+        <span class="close-btn" id="close-btn">&times;</span>
       </div>
       <div class="sidebar-content">
         <a href="../index.html">Home</a>
-        <a href="menu.html" class="active">Menu</a>
-        <a href="gallery.html">Gallery</a>
-        <a href="contacts.html">Contacts</a>
+        <a href="../pages/menu.html">Menu</a>
+        <a href="../pages/gallery.html">Gallery</a>
+        <a href="../pages/contacts.html">Contacts</a>
       </div>
     </div>
 
@@ -38,7 +38,11 @@
 
     <main class="menu-page">
       <div class="menu-categories">
-        <!-- Category buttons will be inserted here by JavaScript -->
+        <button class="category-btn" data-category="Breakfast">
+          Breakfast
+        </button>
+        <button class="category-btn" data-category="Lunch">Lunch</button>
+        <button class="category-btn" data-category="Dinner">Dinner</button>
       </div>
 
       <div class="menu-items">

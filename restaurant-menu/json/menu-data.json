@@ -4,7 +4,9 @@
             "name": "Avocado Sandwich",
             "weight": "250g",
             "price": "8.99€",
-            "image": "images/dishes/avok.jpg"
+            "image": "../images/dishes/avok.jpg",
+            "category": "Breakfast",
+            "description": "Вкусный сендвич с авокадо, свежими овощами и хрустящим хлебом."
         }
     ]
 }

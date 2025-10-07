@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Menu categories
+    // Категории меню
     const menuCategories = [
         'Breakfast',
         'Top Offers',
@@ -16,10 +16,11 @@ document.addEventListener('DOMContentLoaded', () => {
         'Beer'
     ];
 
-    // Create menu category buttons
+    // Создание кнопок категорий
     const createCategoryButtons = () => {
         const categoryContainer = document.querySelector('.menu-categories');
         if (categoryContainer) {
+            categoryContainer.innerHTML = ''; // очищаем перед рендером
             menuCategories.forEach(category => {
                 const button = document.createElement('button');
                 button.className = 'category-btn';
@@ -30,29 +31,45 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    // Load menu items for selected category
+    // Загрузка блюд по категории
     const loadMenuItems = (category) => {
         const menuContainer = document.querySelector('.menu-items');
-        if (menuContainer) {
-            // Clear current items
-            menuContainer.innerHTML = '';
-            
-            // Fetch menu items (replace with actual API call or data source)
-            fetch(`/api/menu/${category.toLowerCase()}`)
-                .then(response => response.json())
-                .then(items => {
-                    items.forEach(item => {
-                        const menuItem = createMenuItem(item);
-                        menuContainer.appendChild(menuItem);
-                    });
-                })
-                .catch(error => {
-                    console.error('Error loading menu items:', error);
+        if (!menuContainer) return;
+
+        menuContainer.innerHTML = '<p>Loading...</p>';
+
+        // Загружаем данные из локального JSON
+        fetch('../json/menu-data.json')
+            .then(response => {
+                if (!response.ok) throw new Error('Ошибка загрузки данных');
+                return response.json();
+            })
+            .then(data => {
+                // Фильтруем блюда по категории
+                const items = data.menuItems.filter(
+                    item => item.category.toLowerCase() === category.toLowerCase()
+                );
+
+                menuContainer.innerHTML = ''; // очищаем контейнер
+
+                if (items.length === 0) {
+                    menuContainer.innerHTML = `<p>No items found for ${category}.</p>`;
+                    return;
+                }
+
+                // Добавляем карточки
+                items.forEach(item => {
+                    const menuItem = createMenuItem(item);
+                    menuContainer.appendChild(menuItem);
                 });
-        }
+            })
+            .catch(error => {
+                console.error('Error loading menu items:', error);
+                menuContainer.innerHTML = `<p>Error loading menu for ${category}.</p>`;
+            });
     };
 
-    // Create menu item card
+    // Создание карточки блюда
     const createMenuItem = (item) => {
         const itemElement = document.createElement('div');
         itemElement.className = 'menu-item';
@@ -63,14 +80,14 @@ document.addEventListener('DOMContentLoaded', () => {
             <div class="item-info">
                 <h3>${item.name}</h3>
                 <div class="item-details">
-                    <span class="weight">${item.weight}g</span>
-                    <span class="price">${item.price}€</span>
+                    <span class="weight">${item.weight}</span>
+                    <span class="price">${item.price}</span>
                 </div>
-                <a href="#" class="view-details" data-id="${item.id}">View Details</a>
+                <a href="#" class="view-details">View Details</a>
             </div>
         `;
 
-        // Add click handler for item details
+        // Обработчик "View Details"
         itemElement.querySelector('.view-details').addEventListener('click', (e) => {
             e.preventDefault();
             showItemDetails(item);
@@ -79,7 +96,7 @@ document.addEventListener('DOMContentLoaded', () => {
         return itemElement;
     };
 
-    // Show item details modal
+    // Модальное окно с описанием блюда
     const showItemDetails = (item) => {
         const modal = document.createElement('div');
         modal.className = 'item-modal';
@@ -88,28 +105,24 @@ document.addEventListener('DOMContentLoaded', () => {
                 <span class="close-modal">&times;</span>
                 <img src="${item.image}" alt="${item.name}">
                 <h2>${item.name}</h2>
-                <p class="description">${item.description}</p>
+                <p>${item.description}</p>
                 <div class="details">
-                    <span class="weight">${item.weight}g</span>
-                    <span class="price">${item.price}€</span>
+                    <span>${item.weight}</span>
+                    <span>${item.price}</span>
                 </div>
             </div>
         `;
 
         document.body.appendChild(modal);
-        
-        modal.querySelector('.close-modal').addEventListener('click', () => {
-            modal.remove();
-        });
+
+        modal.querySelector('.close-modal').addEventListener('click', () => modal.remove());
     };
 
-    // Initialize menu functionality
+    // Инициализация
     const initMenu = () => {
         createCategoryButtons();
-        // Load default category
-        loadMenuItems(menuCategories[0]);
+        loadMenuItems('Breakfast'); // категория по умолчанию
     };
 
-    // Initialize when DOM is ready
     initMenu();
 });

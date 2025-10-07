@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dish Details</title>
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/details.css" />
+  </head>
+  <body>
+    <header>
+      <nav class="top-nav">
+        <div class="logo">Klaschuk</div>
+      </nav>
+    </header>
+
+    <main class="details-page">
+      <div class="item-modal" id="item-modal">
+        <div class="modal-content">
+          <img id="item-image" src="" alt="" class="modal-image" />
+          <span class="close-modal">&times;</span>
+          <div class="dish-info">
+            <h1 id="item-name"></h1>
+            <p id="item-description"></p>
+            <div class="details">
+              <span id="item-weight"></span>
+              <span id="item-price"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script src="../js/details.js"></script>
+  </body>
+</html>
