@@ -1,0 +1,106 @@
+/* Fade In Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Slide Up Animation */
+@keyframes slideUp {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Slide In Right Animation */
+@keyframes slideInRight {
+    from {
+        transform: translateX(100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+/* Apply Animations */
+.hero-content {
+    animation: fadeIn 1.5s ease-out;
+}
+
+.social-links {
+    animation: slideUp 1s ease-out;
+    animation-delay: 0.5s;
+    opacity: 0;
+    animation-fill-mode: forwards;
+}
+
+.restaurant-info {
+    animation: slideUp 1s ease-out;
+    animation-delay: 0.8s;
+    opacity: 0;
+    animation-fill-mode: forwards;
+}
+
+/* Sidebar Animation */
+.sidebar.active {
+    animation: slideInRight 0.3s ease-out forwards;
+}
+
+/* Link Hover Effects */
+.social-links a,
+.bottom-nav a,
+.sidebar-content a {
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.social-links a:hover,
+.bottom-nav a:hover {
+    transform: translateY(-2px);
+}
+
+.sidebar-content a:hover {
+    transform: translateX(5px);
+}
+
+/* Menu Toggle Button Animation */
+.nav-toggle i {
+    transition: transform 0.3s ease;
+}
+
+.nav-toggle:hover i {
+    transform: rotate(90deg);
+}
+
+/* Pulse Animation for Active Elements */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.bottom-nav a.active {
+    animation: pulse 2s infinite;
+}
+
+.fade-in {
+    animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}

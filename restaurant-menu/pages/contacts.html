@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contacts - Klaschuk Restaurant</title>
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/animations.css" />
+    <link rel="stylesheet" href="../css/contacts.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <span class="close-btn">&times;</span>
+      </div>
+      <div class="sidebar-content">
+        <a href="../index.html">Home</a>
+        <a href="menu.html">Menu</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="contacts.html" class="active">Contacts</a>
+      </div>
+    </div>
+
+    <header>
+      <nav class="top-nav">
+        <div class="logo">Klaschuk</div>
+        <div class="nav-toggle">
+          <a href="#" id="menu-toggle">
+            <i class="fas fa-bars"></i>
+          </a>
+        </div>
+      </nav>
+    </header>
+
+    <main class="contacts-page container">
+      <div class="contact-info">
+        <div class="info-card">
+          <i class="fas fa-map-marker-alt"></i>
+          <h3>Address</h3>
+          <p>123 Restaurant Street</p>
+          <p>City, Country 12345</p>
+        </div>
+        <div class="info-card">
+          <i class="fas fa-phone"></i>
+          <h3>Phone</h3>
+          <p><a href="tel:+1234567890">+1 (234) 567-890</a></p>
+        </div>
+        <div class="info-card">
+          <i class="fas fa-envelope"></i>
+          <h3>Email</h3>
+          <p><a href="mailto:info@klaschuk.com">info@klaschuk.com</a></p>
+        </div>
+        <div class="info-card">
+          <i class="fas fa-clock"></i>
+          <h3>Hours</h3>
+          <p>Mon-Fri: 11:00 - 22:00</p>
+          <p>Sat-Sun: 12:00 - 23:00</p>
+        </div>
+      </div>
+
+      <div class="map-container">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=YOUR_MAP_EMBED_CODE"
+          width="100%"
+          height="450"
+          style="border: 0"
+          allowfullscreen=""
+          loading="lazy"
+        >
+        </iframe>
+      </div>
+
+      <div class="contact-form">
+        <h2>Send us a message</h2>
+        <form id="contactForm">
+          <div class="form-group">
+            <input type="text" id="name" name="name" required />
+            <label for="name">Your Name</label>
+          </div>
+          <div class="form-group">
+            <input type="email" id="email" name="email" required />
+            <label for="email">Your Email</label>
+          </div>
+          <div class="form-group">
+            <textarea id="message" name="message" required></textarea>
+            <label for="message">Your Message</label>
+          </div>
+          <button type="submit">Send Message</button>
+        </form>
+      </div>
+    </main>
+
+    <footer>
+      <nav class="bottom-nav">
+        <a href="../index.html"><i class="fas fa-home"></i></a>
+        <a href="menu.html"><i class="fas fa-utensils"></i></a>
+        <a href="gallery.html"><i class="fas fa-images"></i></a>
+        <a href="contacts.html" class="active"
+          ><i class="fas fa-address-book"></i
+        ></a>
+      </nav>
+    </footer>
+
+    <script src="../js/main.js"></script>
+    <script src="../js/contacts.js"></script>
+  </body>
+</html>
