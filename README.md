@@ -1,4 +1,4 @@
-# Restaurant Menu
+<a href="https://github.com/klaschukk/restaurant-menu"><img src="docs/banner.svg" alt="Restaurant Menu — a mobile-first website template" width="100%"></a>
 
 **A mobile-first restaurant website template** — menu with category filters, dish details, photo gallery and contacts. Plain HTML, CSS and JavaScript, no build step.
 
